@@ -13,11 +13,11 @@ const output = solc.compile(source, 1).contracts;
 
 fs.ensureDirSync(buildPath); // "ensureDir" checks if the directory exists or not. if not, the function will create for us.
 
-console.log(output);
+// console.log(output);
 for (let contract in output) {
-  // let contract in sth => 这里的含义是让这个contract成为这个obeject的属性值。
+  // let contract in sth => 这里的含义是让这个contract成为这个obeject的属性key值。通过output[contract]来取值。
   fs.outputJsonSync(
-    path.resolve(buildPath, contract + ".json"),
+    path.resolve(buildPath, `${contract.replace(":", "")}.json`),
     output[contract]
   );
 }
