@@ -2,7 +2,10 @@ const HDWalletProvider = require("truffle-hdwallet-provider");
 const Web3 = require("web3");
 const compiledFactory = require("./build/CampaignFactory.json");
 
-const provider = new HDWalletProvider("", "");
+const provider = new HDWalletProvider(
+  "",
+  "https://rinkeby.infura.io/v3/f9df25172177433482878d4332669fff"
+);
 const web3 = new Web3(provider);
 
 const deploy = async () => {
